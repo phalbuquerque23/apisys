@@ -16,7 +16,6 @@ public class CursoService {
      
     public List<Curso> findAll() {
     	
-    	System.out.println("find all de cursos");
         return repository.findAll();
     }
      
