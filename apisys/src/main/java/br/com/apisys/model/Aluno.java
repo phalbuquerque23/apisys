@@ -1,20 +1,22 @@
 package br.com.apisys.model;
 
 import java.io.Serializable;
-import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import org.springframework.format.annotation.DateTimeFormat;
+import br.com.apisys.enums.StatusCurso;
  
 @Entity(name = "tb_aluno")
 public class Aluno implements Serializable {
@@ -32,17 +34,18 @@ public class Aluno implements Serializable {
     private String nome;
    
     
-    @Column(nullable = false)
-    @NotBlank(message = "Numero Matricula é uma informação obrigatória.")
+    @NotNull(message = "matricula é obrigatória")
     private Integer numeroMatricula;
     
+    @NotNull(message = "semetre é obrigatória")
+    private Integer semestre;
+    
+    @Enumerated(EnumType.ORDINAL)
     @Column(nullable = false)
-    @NotBlank(message = "Semestre é uma informação obrigatória.")
-    private int semetre;
+    private StatusCurso status;
     
-    //falta status enum
-    
-    //falta relacionamento com o curso  1 aluno --- tem --- 1 curso
+    @OneToOne(fetch = FetchType.LAZY,cascade =  CascadeType.ALL)
+    private Curso curso;
     
 	public Long getId() {
 		return id;
@@ -68,15 +71,34 @@ public class Aluno implements Serializable {
 		this.numeroMatricula = numeroMatricula;
 	}
 
-	public int getSemetre() {
-		return semetre;
+
+	public Integer getSemestre() {
+		return semestre;
 	}
 
-	public void setSemetre(int semetre) {
-		this.semetre = semetre;
+	public void setSemestre(Integer semestre) {
+		this.semestre = semestre;
+	}
+
+	public StatusCurso getStatus() {
+		return status;
+	}
+
+	public void setStatus(StatusCurso status) {
+		this.status = status;
+	}
+
+	public Curso getCurso() {
+		return curso;
+	}
+
+	public void setCurso(Curso curso) {
+		this.curso = curso;
 	}
 
 
+	
+	
     
     
 }

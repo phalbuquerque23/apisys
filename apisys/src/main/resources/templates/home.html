@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+	  xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Cursos</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div th:fragment="menu">
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">Apisys</a>
+				</div>
+
+
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a th:href="@{/curso}">curso</a></li>
+					<li><a th:href="@{/aluno}">aluno</a></li>
+				</ul>
+			</div>
+		</nav>
+
+	</div>
+ 
+
+    <div class="page-content">
+ 
+    	 <!-- CONTEUDO A SER SUBSTITUÍDO -->
+    	  <h1>Seja bem vindo!</h1>
+    </div>
+</div>
+
+ 
+</body>
+</html>

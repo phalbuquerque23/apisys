@@ -35,6 +35,7 @@ public class CursoController {
          
         ModelAndView mv = new ModelAndView("/cursoAdd");
         mv.addObject("curso", curso);
+        mv.addObject("cursos", service.findAll());
          
         return mv;
     }
