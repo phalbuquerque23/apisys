@@ -20,11 +20,14 @@ public class MainController {
 		return "home";
 	}
 	
-	@RequestMapping(value="/layout", method= RequestMethod.GET)
-	public String layout(){
+	
+	@RequestMapping(value="/teste", method= RequestMethod.GET)
+	public String teste(){
  
-		return "layout";
+		return "teste";
 	}
+	
+
 
  
 }
