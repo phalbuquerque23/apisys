@@ -45,17 +45,6 @@ public class AlunoController {
         return mv;
     }
     
-//    @GetMapping("/alunoAdd")
-//    public ModelAndView pesquisa() {
-//         
-//        ModelAndView mv = new ModelAndView("/alunoAdd");
-//        mv.addObject("aluno", aluno);
-//        mv.addObject("cursos", serviceCurso.findAll());
-//        mv.addObject("statusList",StatusCurso.values());
-//         
-//        return mv;
-//    }
-    
     
     @GetMapping("/alunoAdd2")
     public ModelAndView add2(Optional<Aluno> optional) {
@@ -81,6 +70,7 @@ public class AlunoController {
          
         return findAll();
     }
+    
  
     @PostMapping("/saveAluno")
     public ModelAndView save(@Valid Aluno aluno, BindingResult result) {
